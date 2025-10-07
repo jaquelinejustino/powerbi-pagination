@@ -1,0 +1,8 @@
+IndiceDinamico =
+RANKX(
+    ALLSELECTED(Tabela[ID]),
+    MAX(Tabela[Data]),
+    ,
+    DESC,
+    DENSE
+)
