@@ -1,0 +1,8 @@
+Indice_RankX =
+RANKX(
+    ALLSELECTED(Tabela),               -- tabela com os registros respeitando filtros externos
+    CALCULATE(MAX(Tabela[Indice])),  -- expressão (valor de ordenação) por linha
+    ,
+    ASC,                                    -- ASC para que RowIndex menor = posição 1 (mais recente)
+    DENSE
+)
