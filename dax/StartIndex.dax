@@ -1,0 +1,1 @@
+StartIndex = ( [PaginaSelecionada] - 1 ) * [TamanhoPagina] + 1
