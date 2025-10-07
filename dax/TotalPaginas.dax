@@ -1,0 +1,1 @@
+TotalPaginas = VAR l = [TotalLinhas] VAR q = [TamanhoPagina] RETURN ROUNDUP( DIVIDE(l, q, 0), 0 )
