@@ -1,0 +1,2 @@
+//Tabela
+Paginacao = GENERATESERIES(1, 50, 1)
