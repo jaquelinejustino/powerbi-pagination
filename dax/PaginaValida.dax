@@ -1,0 +1,1 @@
+PaginaValida = IF( SELECTEDVALUE(Paginacao[Value]) <= [TotalPaginas], 1, 0 )
