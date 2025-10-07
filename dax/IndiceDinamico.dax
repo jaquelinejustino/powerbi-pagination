@@ -1,13 +1,13 @@
 IndiceDinamico =
-VAR curIdx = MAX(Tabela[Indice])  -- Indice gerado no Power Query
+VAR curIdx = MAX(Tabela[Indice])  // Indice gerado no Power Query
 RETURN
 IF(
     ISBLANK(curIdx),
     BLANK(),
     COUNTROWS(
         FILTER(
-            ALLSELECTED(Tabela),         -- respeita filtros aplicados (Paid/Unpaid, etc.)
-            Tabela[Indice] <= curIdx   -- conta quantos registros "anteriores/iguais" existem no conjunto filtrado
+            ALLSELECTED(Tabela),         // respeita filtros aplicados (Paid/Unpaid, etc.)
+            Tabela[Indice] <= curIdx   // conta quantos registros "anteriores/iguais" existem no conjunto filtrado
         )
     )
 )
