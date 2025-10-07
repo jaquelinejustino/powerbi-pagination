@@ -12,6 +12,7 @@ Este projeto demonstra como implementar **paginação dinâmica** em tabelas no 
 
 
 ## 📂 Estrutura do projeto
+```
 powerbi-pagination
 │
 ├── README.md # Explicação geral do projeto
@@ -26,65 +27,44 @@ powerbi-pagination
 │ └── TabelaFiltrada.dax
 └── powerquery/
 └── Calendar.m # Código M ou scripts auxiliares
-
----
-
-## 🛠️ Como funciona
-
-### 1. Criar tabelas auxiliares
-```DAX
-ShowBy = DATATABLE("Qtd", INTEGER, { {10}, {20}, {50}, {100} })
-
-Paginacao = GENERATESERIES(1, 20, 1)  -- até 20 páginas (ajustado dinamicamente depois)
 ```
-### 2. Criar medidas principais
 
-## 🛠️ Medidas DAX
+## 📑 Documentação detalhada
 
-- [IndiceDinamico](dax/IndiceDinamico.dax)
-- [TotalPaginas](dax/TotalPaginas.dax)
-- [PageStart](dax/PageStart.dax)
-- [PageEnd](dax/PageEnd.dax)
-- [TabelaFiltrada](dax/TabelaFiltrada.dax)
+A explicação completa das medidas e lógica está em [`docs/explicacao.md`](docs/explicacao.md).
 
-## ⚙️ Power Query (M)
+## ⚙️ Como usar
 
-- [Calendar.m](powerquery/Calendar.m)
+1. Clone este repositório:
 
----
+   ```bash
+   git clone [https://github.com/jaquelinejustino/powerbi-pagination.git]
+   ```
+
+2. Importe as medidas DAX da pasta `dax/` para seu modelo Power BI
+
+3. Importe os scripts M da pasta `powerquery/`
+
+4. Configure os slicers para **ShowBy** e **Paginação**
+
+5. Teste aplicando filtros e navegando pelas páginas
+
 ## 📊 Exemplo
-
-![Exemplo de Tabela Paginada](docs/imagens/exemplo.png)
-
+![Exemplo de Página](docs/imagens/exemplo.png)
 No exemplo acima:
 
-O usuário escolheu Show 10 (10 linhas por página).
+O usuário escolheu: Show 10 (10 linhas por página).
 
 Página atual: 1/4.
 
 A tabela mostra os registros correspondentes à página 1, respeitando os filtros ativos (Paid, Unpaid, etc.).
 
----
-## 🚀 Como usar
-
-1. Adicione as tabelas ShowBy e Paginacao no modelo.
-
-2. Crie as medidas conforme descrito.
-
-3. Insira dois slicers no relatório:
-
-- ShowBy → quantidade de linhas por página.
-
-- Paginacao → seleção da página.
-
-4. Use a medida TabelaFiltrada para exibir os dados filtrados no visual de tabela.
-
----
-
 ## 📌 Observações
 
-- O número de páginas é calculado dinamicamente (evita páginas vazias).
+- Esse exemplo foi construído em Power BI Desktop versão mais recente
+- A lógica pode ser adaptada para outros cenários como outros tipos de visualizações.
+- Funcionalidade de paginação é apenas simulada, já que Power BI não possui nativamente esse recurso.
 
-- Compatível com filtros adicionais (Paid, Unpaid, Recent Request, etc.).
+## 📄 Licença
 
-- O índice pode ser gerado tanto no Power Query (coluna Index) quanto via DAX (RANKX), conforme necessidade.
+Este projeto é de uso livre para fins de estudo e pode ser adaptado conforme necessidade.
