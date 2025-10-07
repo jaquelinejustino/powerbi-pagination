@@ -1,0 +1,11 @@
+# Criar medidas separadamente 
+PaginaSelecionada = SELECTEDVALUE(Paginacao[Value], 1)
+TamanhoPagina   = SELECTEDVALUE(ShowBy[Qtd], 10)
+
+StartIndex = ( [PaginaSelecionada] - 1 ) * [TamanhoPagina] + 1
+EndIndex   = [PaginaSelecionada] * [TamanhoPagina]
+
+MostrarNaPagina =
+VAR idx = [IndiceDinâmico]
+RETURN
+IF( NOT ISBLANK(idx) && idx >= [StartIndex] && idx <= [EndIndex], 1, 0 )
