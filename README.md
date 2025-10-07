@@ -1,35 +1,91 @@
 # Power BI - Paginação em Tabelas
-  Implementação de paginação dinâmica em tabelas no Power BI utilizando DAX, parâmetros e tabelas auxiliares.
 
-1. Objetivo
-  Este projeto mostra como criar paginação em tabelas do Power BI, simulando controles de "show X rows" e navegação de páginas (1/2/3...), semelhante a sistemas web.
+Este projeto demonstra como implementar **paginação dinâmica** em tabelas no Power BI, permitindo controlar a quantidade de linhas exibidas (ex: 10, 20, 50, 100) e navegar entre páginas (1/2/3...), semelhante ao comportamento de sistemas web.
 
-2. Funcionalidades
+---
 
-  • Escolher quantidade de linhas por página (ShowBy)
-  
-  • Paginação dinâmica (Paginacao)
-  
-  • Cálculo automático do número de páginas (TotalPaginas)
-  
-  • Compatível com filtros adicionais (Paid, Unpaid, Recent Request, etc.)
+## 🎯 Objetivo
+- Criar uma tabela com paginação customizada no Power BI.  
+- Simular botões de **"Show X rows"** e **navegação por páginas**.  
+- Garantir que a quantidade de páginas se ajuste dinamicamente conforme a quantidade de registros.  
+- Integrar a paginação com filtros adicionais como *Paid*, *Unpaid* e *Recent Request*.  
 
-3. Exemplo
+---
 
-(docs/imagens/exemplo.png)
+## ⚙️ Estrutura do projeto
+powerbi-pagination
+│
+├── README.md # Explicação geral do projeto
+├── docs/
+│ ├── imagens/ # Prints do dashboard e filtros
+│ └── explicacao.md # Documentação detalhada (DAX/M)
+├── dax/
+│ ├── IndiceDinamico.dax
+│ ├── TotalPaginas.dax
+│ ├── PageStart.dax
+│ ├── PageEnd.dax
+│ └── TabelaFiltrada.dax
+└── powerquery/
+└── Calendar.m # Código M ou scripts auxiliares
 
-4. Como usar
-  1. Crie as tabelas auxiliares:
-   - ShowBy = DATATABLE("Qtd",{ {10},{20},{50},{100} }) 
-   - Paginacao = GENERATESERIES(1,20,1)
+---
 
-  2. Crie as medidas DAX:
-   - IndiceDinamico
-   - TotalPaginas
-   - PageStart
-   - PageEnd
-   - TabelaFiltrada
+## 🛠️ Como funciona
 
-  3. Adicione slicers para ShowBy e Paginacao.
-  4. Use a TabelaFiltrada como base da visualização.
+### 1. Criar tabelas auxiliares
+```DAX
+ShowBy = DATATABLE("Qtd", INTEGER, { {10}, {20}, {50}, {100} })
 
+Paginacao = GENERATESERIES(1, 20, 1)  -- até 20 páginas (ajustado dinamicamente depois)
+```
+2. Criar medidas principais
+
+## 🛠️ Medidas DAX
+
+- [IndiceDinamico](dax/IndiceDinamico.dax)
+- [TotalPaginas](dax/TotalPaginas.dax)
+- [PageStart](dax/PageStart.dax)
+- [PageEnd](dax/PageEnd.dax)
+- [TabelaFiltrada](dax/TabelaFiltrada.dax)
+
+## ⚙️ Power Query (M)
+
+- [Calendar.m](powerquery/Calendar.m)
+
+---
+📊 Exemplo
+
+![Exemplo de Tabela Paginada](imagens/exemplo.png)
+
+No exemplo acima:
+
+O usuário escolheu Show 10 (10 linhas por página).
+
+Página atual: 1/4.
+
+A tabela mostra os registros correspondentes à página 1, respeitando os filtros ativos (Paid, Unpaid, etc.).
+
+---
+🚀 Como usar
+
+1. Adicione as tabelas ShowBy e Paginacao no modelo.
+
+2. Crie as medidas conforme descrito.
+
+3. Insira dois slicers no relatório:
+
+- ShowBy → quantidade de linhas por página.
+
+- Paginacao → seleção da página.
+
+4. Use a medida TabelaFiltrada para exibir os dados filtrados no visual de tabela.
+
+---
+
+📌 Observações
+
+- O número de páginas é calculado dinamicamente (evita páginas vazias).
+
+- Compatível com filtros adicionais (Paid, Unpaid, Recent Request, etc.).
+
+- O índice pode ser gerado tanto no Power Query (coluna Index) quanto via DAX (RANKX), conforme necessidade.
