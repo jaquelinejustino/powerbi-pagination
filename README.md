@@ -10,9 +10,8 @@ Este projeto demonstra como implementar **paginação dinâmica** em tabelas no 
 - Garantir que a quantidade de páginas se ajuste dinamicamente conforme a quantidade de registros.  
 - Integrar a paginação com filtros adicionais como *Paid*, *Unpaid* e *Recent Request*.  
 
----
 
-## ⚙️ Estrutura do projeto
+## 📂 Estrutura do projeto
 powerbi-pagination
 │
 ├── README.md # Explicação geral do projeto
@@ -38,7 +37,7 @@ ShowBy = DATATABLE("Qtd", INTEGER, { {10}, {20}, {50}, {100} })
 
 Paginacao = GENERATESERIES(1, 20, 1)  -- até 20 páginas (ajustado dinamicamente depois)
 ```
-2. Criar medidas principais
+### 2. Criar medidas principais
 
 ## 🛠️ Medidas DAX
 
@@ -53,9 +52,9 @@ Paginacao = GENERATESERIES(1, 20, 1)  -- até 20 páginas (ajustado dinamicament
 - [Calendar.m](powerquery/Calendar.m)
 
 ---
-📊 Exemplo
+## 📊 Exemplo
 
-![Exemplo de Tabela Paginada](imagens/exemplo.png)
+![Exemplo de Tabela Paginada](docs/imagens/exemplo.png)
 
 No exemplo acima:
 
@@ -66,7 +65,7 @@ Página atual: 1/4.
 A tabela mostra os registros correspondentes à página 1, respeitando os filtros ativos (Paid, Unpaid, etc.).
 
 ---
-🚀 Como usar
+## 🚀 Como usar
 
 1. Adicione as tabelas ShowBy e Paginacao no modelo.
 
@@ -82,7 +81,7 @@ A tabela mostra os registros correspondentes à página 1, respeitando os filtro
 
 ---
 
-📌 Observações
+## 📌 Observações
 
 - O número de páginas é calculado dinamicamente (evita páginas vazias).
 
