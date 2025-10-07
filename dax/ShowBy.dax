@@ -1,0 +1,12 @@
+//Tabela
+
+ShowBy = 
+DATATABLE(
+    "Qtd", INTEGER,
+    { 
+        {10},
+        {20},
+        {50},
+        {100}
+    }
+)
