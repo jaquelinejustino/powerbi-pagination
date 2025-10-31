@@ -6,7 +6,7 @@ Este projeto demonstra como implementar **paginação dinâmica** em tabelas no 
 
 ## 🎯 Objetivo
 * Criar uma tabela com paginação customizada no Power BI.  
-* Simular botões de **"Show X rows"** e **navegação por páginas**.  
+* Simular botões de **"Mostrar x Linhas"** e **navegação por páginas**.  
 * Garantir que a quantidade de páginas se ajuste dinamicamente conforme a quantidade de registros.  
 * Integrar a paginação com filtros adicionais como *Paid*, *Unpaid* e *Recent Request*.  
 
@@ -62,7 +62,7 @@ A tabela mostra os registros correspondentes à página 1, respeitando os filtro
 
 ## 📌 Observações
 
-* Esse exemplo foi construído em Power BI Desktop versão mais recente
+* Esse exemplo foi construído em Power BI Desktop versão mais recente.
 * A lógica pode ser adaptada para outros cenários como outros tipos de visualizações.
 * Funcionalidade de paginação é apenas simulada, já que Power BI não possui nativamente esse recurso.
 
